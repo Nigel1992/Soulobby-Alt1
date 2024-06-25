@@ -122,7 +122,15 @@ header('Content-Type: text/html; charset=utf-8');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Soul Obelisk and Scarab Tracker</title>
+    <title>Astrolume's Menaphos Helper</title>
+	 <link rel="stylesheet" type="text/css" href="https://runeapps.org/runeappslib.js" />
+    <link rel="stylesheet" type="text/css" href="https://runeapps.org/nis/nis.css" />
+    <link rel="stylesheet" type="text/css" href="https://runeapps.org/nis/alt1-currentskin/skinstyle.css" />
+    <link rel="stylesheet" type="text/css" href="https://runeapps.org/apps/alt1/youtube/style.css" />
+    <script type="text/javascript" src="https://runeapps.org/runeappslib.js"></script>
+    <script type="text/javascript" src="https://runeapps.org/alt1lib.js"></script>
+
+	
 <style>
     /* General Styles */
     body {
