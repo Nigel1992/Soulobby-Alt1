@@ -1,15 +1,17 @@
 {
-    "appName": "Soul Obelisk Tracker",
-    "description": "Track and share Soul Obelisk locations in Menaphos",
-    "appUrl": "./index.html",
-    "configUrl": "./appconfig.json",
-    "iconUrl": "./icon.png",
-    "defaultWidth": 500,
-    "defaultHeight": 800,
-    "minWidth": 250,
-    "minHeight": 400,
-    "maxWidth": 1000,
-    "maxHeight": 1000,
-    "requestHandlers": [],
-    "permissions": "pixel,gamestate,overlay"
-} 
+	"appName": "Menaphos Helper v0.1",
+	"description": "Find and share Soul Obelisks, Scarabss found in Menaphos with ease...\n\nLast updated at: 6/25/2024",
+	"appUrl": "/.index.html",
+	"configUrl": "./appconfig.json",
+	"iconUrl": "./icon.png",
+	"defaultWidth": 400,
+	"defaultHeight": 850,
+	"minWidth": 345,
+	"minHeight": 406,
+	"maxWidth": 345,
+	"maxHeight": 406,
+	"requestHandlers": [],
+	"activators": [],
+	"permissions": "overlay"
+  }
+  
