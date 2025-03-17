@@ -1,18 +1,77 @@
-# Soul Obelisk Tracker for RuneScape 3
+# 🏛️ Soul Obelisk Tracker for RuneScape 3
 
 A real-time tracker for Soul Obelisks and Corrupted Scarabs in Menaphos districts. Built for the Alt1 Toolkit.
 
+[![Live Demo](https://img.shields.io/badge/Demo-Try%20it%20out!-success)](https://nigel1992.github.io/Soulobby-Alt1/)
+![RS3](https://img.shields.io/badge/Game-RuneScape%203-blue)
+![Alt1](https://img.shields.io/badge/Alt1-Compatible-orange)
 
-## Features
+## 🌟 Features
 
-- Real-time tracking of Soul Obelisks and Scarabs
-- Visual district selection with images
-- Auto world detection with Alt1
-- Community voting system
-- 20-minute auto-expiry
+- **Real-time Tracking**: Monitor Soul Obelisk and Corrupted Scarab locations across all Menaphos districts
+- **Visual District Selection**: Easy-to-use interface with district images
+- **World Integration**: Automatic world detection when using Alt1 Toolkit
+- **Community Voting**: Vote on whether locations are still active
+- **Auto-Expiry**: Submissions automatically expire after 20 minutes
+- **Mobile Friendly**: Responsive design works on all devices
 
-## Demo
+## 🎮 Live Demo
 
-Try the [static demo](https://nigel1992.github.io/Soulobby-Alt1/)!
+Try out the [static demo version](https://nigel1992.github.io/Soulobby-Alt1/)!
 
-*Note: Demo uses local storage only*
+⚠️ **Demo Limitations**:
+- Data is stored locally in your browser
+- Submissions are not shared with other users
+- No persistent database connection
+- For testing purposes only
+
+## 🏛️ Districts Covered
+
+- Merchant District
+- Imperial District
+- Port District
+- Worker District
+
+## 🛠️ Usage
+
+1. Select a district by clicking its image
+2. Enter the world number (auto-detected with Alt1)
+3. Choose the type (Soul Obelisk/Corrupted Scarabs)
+4. Indicate if it's a new or old spawn
+5. Submit the location
+6. Vote on existing submissions to help others
+
+## 🔧 Installation
+
+For the full version with database connectivity:
+
+1. Clone this repository
+2. Place files in your web server directory
+3. Ensure PHP is installed and configured
+4. Create a `submissions.json` file with write permissions
+
+## 💻 Technologies Used
+
+- HTML5/CSS3
+- JavaScript
+- PHP
+- Alt1 Toolkit API
+- LocalStorage (Demo version)
+- JSON Storage (Full version)
+
+## 🤝 Contributing
+
+Feel free to:
+- Report bugs
+- Suggest features
+- Submit pull requests
+
+## 📜 License
+
+This project is open source and available under the MIT License.
+
+## 🙏 Credits
+
+- District images sourced from [RuneScape Wiki](https://runescape.wiki/)
+- Built for the RuneScape community
+- Powered by Alt1 Toolkit
