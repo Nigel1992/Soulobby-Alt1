@@ -10,7 +10,7 @@ A real-time tracker for Soul Obelisks and Corrupted Scarabs in Menaphos district
 
 - **Real-time Tracking**: Monitor Soul Obelisk and Corrupted Scarab locations across all Menaphos districts
 - **Visual District Selection**: Easy-to-use interface with district images
-- **World Integration**: Automatic world detection when using Alt1 Toolkit
+- **World Integration**: Automatic world detection when using Alt1 Toolkit (coming soon)
 - **Community Voting**: Vote on whether locations are still active
 - **Auto-Expiry**: Submissions automatically expire after 20 minutes
 - **Mobile Friendly**: Responsive design works on all devices
@@ -35,7 +35,7 @@ Try out the [static demo version](https://nigel1992.github.io/Soulobby-Alt1/)!
 ## 🛠️ Usage
 
 1. Select a district by clicking its image
-2. Enter the world number (auto-detected with Alt1)
+2. Enter the world number (auto-detected with Alt1 > coming soon)
 3. Choose the type (Soul Obelisk/Corrupted Scarabs)
 4. Indicate if it's a new or old spawn
 5. Submit the location
