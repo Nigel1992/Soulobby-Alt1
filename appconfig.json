@@ -1,0 +1,15 @@
+{
+    "appName": "Soul Obelisk Tracker",
+    "description": "Track and share Soul Obelisk locations in Menaphos",
+    "appUrl": "./index.html",
+    "configUrl": "./appconfig.json",
+    "iconUrl": "./icon.png",
+    "defaultWidth": 500,
+    "defaultHeight": 800,
+    "minWidth": 250,
+    "minHeight": 400,
+    "maxWidth": 1000,
+    "maxHeight": 1000,
+    "requestHandlers": [],
+    "permissions": "pixel,gamestate,overlay"
+} 
