@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soul Obelisk Tracker - Demo</title>
+    <style>
+        :root {
+            --rs-gold: #f1c232;
+            --rs-brown: #3d2b1f;
+            --rs-dark: #1a1a1a;
+            --rs-light: #e6d5b8;
+            --rs-accent: #c17d11;
+            --rs-success: #4CAF50;
+            --rs-danger: #f44336;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--rs-dark);
+            font-family: Arial, sans-serif;
+            color: var(--rs-light);
+            line-height: 1.6;
+            min-height: 100vh;
+            margin: 0;
+            padding: 10px;
+        }
+
+        .demo-banner {
+            background: var(--rs-gold);
+            color: var(--rs-dark);
+            text-align: center;
+            padding: 10px;
+            margin: -10px -10px 20px -10px;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 10px;
+        }
+
+        header {
+            text-align: center;
+            padding: 10px 0;
+            background: linear-gradient(rgba(61, 43, 31, 0.9), rgba(61, 43, 31, 0.7));
+            border-bottom: 2px solid var(--rs-gold);
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--rs-gold);
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            color: var(--rs-light);
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .form-container {
+            background: linear-gradient(rgba(61, 43, 31, 0.95), rgba(41, 23, 11, 0.95));
+            border: 2px solid var(--rs-gold);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .district-images {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .district-option {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .district-option input[type="radio"] {
+            display: none;
+        }
+
+        .district-option .image-container {
+            position: relative;
+            aspect-ratio: 16/9;
+            border-radius: 6px;
+            overflow: hidden;
+            margin-bottom: 5px;
+            border: 2px solid transparent;
+        }
+
+        .district-option img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .district-option input[type="radio"]:checked + label .image-container {
+            border: 2px solid var(--rs-gold);
+        }
+
+        .district-name {
+            color: var(--rs-gold);
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        select,
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--rs-gold);
+            border-radius: 4px;
+            color: var(--rs-light);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .submit-btn {
+            background: linear-gradient(45deg, var(--rs-gold), var(--rs-accent));
+            color: var(--rs-dark);
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            width: 100%;
+            font-size: 0.9rem;
+        }
+
+        .submissions-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+        }
+
+        .submission {
+            background: linear-gradient(135deg, rgba(61, 43, 31, 0.95), rgba(41, 23, 11, 0.95));
+            border: 1px solid var(--rs-gold);
+            border-radius: 6px;
+            padding: 10px;
+        }
+
+        .submission.alive {
+            border-left: 3px solid var(--rs-success);
+        }
+
+        .submission.dead {
+            border-left: 3px solid var(--rs-danger);
+        }
+
+        .submission-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid rgba(241, 194, 50, 0.3);
+        }
+
+        .world-tag {
+            background: linear-gradient(45deg, var(--rs-gold), var(--rs-accent));
+            color: var(--rs-dark);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 0.8rem;
+        }
+
+        .status-tag {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+        }
+
+        .submission.alive .status-tag {
+            background: var(--rs-success);
+            color: white;
+        }
+
+        .submission.dead .status-tag {
+            background: var(--rs-danger);
+            color: white;
+        }
+
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 4px;
+            margin-bottom: 5px;
+            font-size: 0.8rem;
+        }
+
+        .info-label {
+            color: var(--rs-gold);
+            font-weight: 500;
+        }
+
+        .timer {
+            text-align: center;
+            margin-top: 10px;
+            padding: 5px;
+            border-top: 1px solid rgba(241, 194, 50, 0.3);
+            font-size: 0.9rem;
+            color: var(--rs-gold);
+        }
+
+        .vote-buttons {
+            display: flex;
+            gap: 5px;
+            margin-top: 10px;
+        }
+
+        .vote-btn {
+            flex: 1;
+            padding: 5px;
+            border: none;
+            border-radius: 4px;
+            font-weight: 500;
+            cursor: pointer;
+            font-size: 0.8rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .vote-btn.alive {
+            background: var(--rs-success);
+            color: white;
+        }
+
+        .vote-btn.dead {
+            background: var(--rs-danger);
+            color: white;
+        }
+
+        .district-validation {
+            color: var(--rs-danger);
+            text-align: center;
+            margin-top: 10px;
+            font-size: 0.8rem;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-banner">⚠️ Demo Version - Data is stored locally in your browser</div>
+
+    <header>
+        <h1>Soul Obelisk Tracker</h1>
+        <div class="subtitle">Track and share Soul Obelisk locations in Menaphos</div>
+    </header>
+
+    <div class="container">
+        <div class="form-container">
+            <form id="submissionForm">
+                <div class="district-images">
+                    <div class="district-option">
+                        <input type="radio" id="Merchant" name="district" value="Merchant">
+                        <label for="Merchant">
+                            <div class="image-container">
+                                <img src="https://runescape.wiki/images/thumb/Merchant_district.png/300px-Merchant_district.png" alt="Merchant District">
+                            </div>
+                            <div class="district-name">Merchant</div>
+                        </label>
+                    </div>
+                    <div class="district-option">
+                        <input type="radio" id="Imperial" name="district" value="Imperial">
+                        <label for="Imperial">
+                            <div class="image-container">
+                                <img src="https://runescape.wiki/images/thumb/Imperial_district.png/300px-Imperial_district.png" alt="Imperial District">
+                            </div>
+                            <div class="district-name">Imperial</div>
+                        </label>
+                    </div>
+                    <div class="district-option">
+                        <input type="radio" id="Port" name="district" value="Port">
+                        <label for="Port">
+                            <div class="image-container">
+                                <img src="https://runescape.wiki/images/thumb/Port_district.png/300px-Port_district.png" alt="Port District">
+                            </div>
+                            <div class="district-name">Port</div>
+                        </label>
+                    </div>
+                    <div class="district-option">
+                        <input type="radio" id="Worker" name="district" value="Worker">
+                        <label for="Worker">
+                            <div class="image-container">
+                                <img src="https://runescape.wiki/images/thumb/Worker_district.png/300px-Worker_district.png" alt="Worker District">
+                            </div>
+                            <div class="district-name">Worker</div>
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="world" name="world" placeholder="World number" required pattern="[0-9]+" maxlength="3">
+                </div>
+                <div class="form-group">
+                    <select id="type" name="type" required>
+                        <option value="">Select Type</option>
+                        <option value="Obelisk">Soul Obelisk</option>
+                        <option value="Scarabs">Corrupted Scarabs</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <select id="age" name="age" required>
+                        <option value="">Select Age</option>
+                        <option value="new">New</option>
+                        <option value="old">Old</option>
+                    </select>
+                </div>
+                <button type="submit" class="submit-btn">Submit Location</button>
+                <div class="district-validation"></div>
+            </form>
+        </div>
+
+        <div id="submissions" class="submissions-container">
+            <div class="loading">Loading submissions...</div>
+        </div>
+    </div>
+
+    <script>
+        // District images with fallbacks
+        const districtImages = {
+            'Merchant': 'https://runescape.wiki/images/thumb/Merchant_district.png/300px-Merchant_district.png',
+            'Imperial': 'https://runescape.wiki/images/thumb/Imperial_district.png/300px-Imperial_district.png',
+            'Port': 'https://runescape.wiki/images/thumb/Port_district.png/300px-Port_district.png',
+            'Worker': 'https://runescape.wiki/images/thumb/Worker_district.png/300px-Worker_district.png'
+        };
+
+        const fallbackImages = {
+            'Merchant': 'https://runescape.wiki/images/Merchant_district.png',
+            'Imperial': 'https://runescape.wiki/images/Imperial_district.png',
+            'Port': 'https://runescape.wiki/images/Port_district.png',
+            'Worker': 'https://runescape.wiki/images/Worker_district.png'
+        };
+
+        // Load submissions from localStorage
+        function loadSubmissions() {
+            try {
+                const submissions = JSON.parse(localStorage.getItem('submissions')) || [];
+                const currentTime = Date.now();
+                
+                // Filter out expired submissions (older than 20 minutes)
+                const activeSubmissions = submissions.filter(sub => {
+                    return (sub.timestamp + (20 * 60 * 1000)) > currentTime;
+                });
+                
+                // Sort by newest first
+                activeSubmissions.sort((a, b) => b.timestamp - a.timestamp);
+                
+                // Save filtered submissions back to localStorage
+                localStorage.setItem('submissions', JSON.stringify(activeSubmissions));
+                
+                const container = document.getElementById('submissions');
+                container.innerHTML = '';
+                
+                if (activeSubmissions.length === 0) {
+                    container.innerHTML = '<div class="loading">No active submissions</div>';
+                    return;
+                }
+                
+                activeSubmissions.forEach(submission => {
+                    const submissionEl = document.createElement('div');
+                    submissionEl.className = `submission ${submission.status}`;
+                    
+                    submissionEl.innerHTML = `
+                        <div class="submission-header">
+                            <span class="world-tag">W${submission.world}</span>
+                            <span class="status-tag">${submission.status}</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">District:</span>
+                            <span class="info-value">${submission.district}</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Type:</span>
+                            <span class="info-value">${submission.type}</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Age:</span>
+                            <span class="info-value">${submission.age}</span>
+                        </div>
+                        <div class="vote-buttons">
+                            <button class="vote-btn alive" onclick="vote('${submission.id}', 'alive')">
+                                <span class="vote-count">${submission.votes.alive}</span>
+                                Active
+                            </button>
+                            <button class="vote-btn dead" onclick="vote('${submission.id}', 'dead')">
+                                <span class="vote-count">${submission.votes.dead}</span>
+                                Expired
+                            </button>
+                        </div>
+                        <div class="timer" data-deletion-time="${submission.deletionTime}">
+                            Calculating...
+                        </div>
+                    `;
+                    container.appendChild(submissionEl);
+                });
+                
+                updateTimers();
+            } catch (error) {
+                console.error('Error:', error);
+                document.getElementById('submissions').innerHTML = '<div class="loading">Error loading submissions</div>';
+            }
+        }
+
+        // Form submission handler
+        document.getElementById('submissionForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const selectedDistrict = document.querySelector('input[name="district"]:checked');
+            const validationMsg = document.querySelector('.district-validation');
+            
+            if (!selectedDistrict) {
+                validationMsg.textContent = 'Please select a district by clicking one of the images above';
+                validationMsg.style.display = 'block';
+                return;
+            }
+            
+            const formData = new FormData(this);
+            const submissions = JSON.parse(localStorage.getItem('submissions')) || [];
+            
+            const newSubmission = {
+                id: Date.now().toString(),
+                district: formData.get('district'),
+                world: parseInt(formData.get('world')),
+                type: formData.get('type'),
+                age: formData.get('age'),
+                timestamp: Date.now(),
+                status: 'alive',
+                votes: {
+                    alive: 1,
+                    dead: 0
+                },
+                deletionTime: new Date(Date.now() + (20 * 60 * 1000)).toISOString()
+            };
+            
+            submissions.unshift(newSubmission);
+            localStorage.setItem('submissions', JSON.stringify(submissions));
+            
+            this.reset();
+            validationMsg.style.display = 'none';
+            loadSubmissions();
+        });
+
+        // Vote function
+        function vote(id, status) {
+            const submissions = JSON.parse(localStorage.getItem('submissions')) || [];
+            const submission = submissions.find(s => s.id === id);
+            
+            if (submission) {
+                submission.votes[status]++;
+                submission.status = submission.votes.dead > submission.votes.alive ? 'dead' : 'alive';
+                localStorage.setItem('submissions', JSON.stringify(submissions));
+                loadSubmissions();
+            }
+        }
+
+        // Update timers function
+        function updateTimers() {
+            const timers = document.querySelectorAll('.timer');
+            timers.forEach(timer => {
+                const deletionTime = new Date(timer.dataset.deletionTime);
+                const now = new Date();
+                const diff = deletionTime - now;
+                
+                if (diff <= 0) {
+                    timer.textContent = 'Expired';
+                    timer.style.color = 'var(--rs-danger)';
+                    loadSubmissions();
+                } else {
+                    const minutes = Math.floor(diff / 60000);
+                    const seconds = Math.floor((diff % 60000) / 1000);
+                    timer.textContent = `${minutes}m ${seconds}s`;
+                    
+                    if (minutes < 2) {
+                        timer.style.color = 'var(--rs-danger)';
+                    }
+                }
+            });
+        }
+
+        // Auto-detect world number if possible
+        if (window.alt1) {
+            alt1.events.gameStateChanged.push(function(state) {
+                if (state.world) {
+                    document.getElementById('world').value = state.world;
+                }
+            });
+        }
+
+        // Initial load
+        loadSubmissions();
+        
+        // Update timers every second
+        setInterval(updateTimers, 1000);
+    </script>
+</body>
+</html> 
