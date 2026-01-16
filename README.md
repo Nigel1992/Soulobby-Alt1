@@ -1,12 +1,79 @@
-# Support Any Cause 🌍
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/Nigel1992)
 
-Thank you for your generosity! You can donate here using **PayPal, Visa, or Mastercard**.
+# 🏛️ Soul Obelisk Tracker for RuneScape 3
 
-### Your Impact:
-* **95%** of your donation goes to **any charity of your choosing**. Please mention the name of the organization in your donation message!
-* **5%** goes toward **Ko-fi project development** to help maintain and grow the platform.
+A real-time tracker for Soul Obelisks and Corrupted Scarabs in Menaphos districts. Built for the Alt1 Toolkit.
 
-**Recognition:** Every donor will be officially listed as a **Supporter** on this project page/app/software/etc as a token of our appreciation.
+[![Live Demo](https://img.shields.io/badge/Demo-Try%20it%20out!-success)](https://nigel1992.github.io/Soulobby-Alt1/)
+![RS3](https://img.shields.io/badge/Game-RuneScape%203-blue)
+![Alt1](https://img.shields.io/badge/Alt1-Compatible-orange)
 
-[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/nigel1992)
+## 🌟 Features
 
+- **Real-time Tracking**: Monitor Soul Obelisk and Corrupted Scarab locations across all Menaphos districts
+- **Visual District Selection**: Easy-to-use interface with district images
+- **World Integration**: Automatic world detection when using Alt1 Toolkit (coming soon)
+- **Community Voting**: Vote on whether locations are still active
+- **Auto-Expiry**: Submissions automatically expire after 20 minutes
+- **Mobile Friendly**: Responsive design works on all devices
+
+## 🎮 Live Demo
+
+Try out the [static demo version](https://nigel1992.github.io/Soulobby-Alt1/)!
+
+⚠️ **Demo Limitations**:
+- Data is stored locally in your browser
+- Submissions are not shared with other users
+- No persistent database connection
+- For testing purposes only
+
+## 🏛️ Districts Covered
+
+- Merchant District
+- Imperial District
+- Port District
+- Worker District
+
+## 🛠️ Usage
+
+1. Select a district by clicking its image
+2. Enter the world number (auto-detected with Alt1 > coming soon)
+3. Choose the type (Soul Obelisk/Corrupted Scarabs)
+4. Indicate if it's a new or old spawn
+5. Submit the location
+6. Vote on existing submissions to help others
+
+## 🔧 Installation
+
+For the full version with database connectivity:
+
+1. Clone this repository
+2. Place files in your web server directory
+3. Ensure PHP is installed and configured
+4. Create a `submissions.json` file with write permissions
+
+## 💻 Technologies Used
+
+- HTML5/CSS3
+- JavaScript
+- PHP
+- Alt1 Toolkit API
+- LocalStorage (Demo version)
+- JSON Storage (Full version)
+
+## 🤝 Contributing
+
+Feel free to:
+- Report bugs
+- Suggest features
+- Submit pull requests
+
+## 📜 License
+
+This project is open source and available under the MIT License.
+
+## 🙏 Credits
+
+- District images sourced from [RuneScape Wiki](https://runescape.wiki/)
+- Built for the RuneScape community
+- Powered by Alt1 Toolkit
