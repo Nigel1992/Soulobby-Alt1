@@ -5,6 +5,8 @@
 
 # 🏛️ Soul Obelisk Tracker for RuneScape 3
 
+[![Vibe Coded](https://img.shields.io/badge/Vibe_Coded-✨-8A2BE2?style=for-the-badge)](https://github.com)
+
 A real-time tracker for Soul Obelisks and Corrupted Scarabs in Menaphos districts. Built for the Alt1 Toolkit.
 
 [![Live Demo](https://img.shields.io/badge/Demo-Try%20it%20out!-success)](https://nigel1992.github.io/Soulobby-Alt1/)
